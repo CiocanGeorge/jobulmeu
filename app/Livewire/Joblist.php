@@ -12,7 +12,7 @@ class Joblist extends Component
 
     public function mount()
     {
-        $this->jobs = Job::all();
+        $this->jobs = Job::where('status', 'active')->get();
     }
 
     public function render()

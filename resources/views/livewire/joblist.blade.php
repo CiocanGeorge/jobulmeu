@@ -1,7 +1,7 @@
 <div class="max-w-10xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
     @foreach ($jobs as $job)
     @php
-    $isDisabled = $job->status == 'inactive';
+    $isDisabled = strtotime(date('Y-m-d',strtotime($job->expirationDate))) < strtotime(date('Y-m-d'));
     @endphp
 
     <a href="{{ route('job-show', $job->id) }}"
